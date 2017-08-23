@@ -1,0 +1,10 @@
+[Desktop Entry]
+
+Terminal=false
+Icon=/usr/share/antergos/cnchi.png
+Type=Application
+Terminal=false
+Exec=sh /usr/bin/install-antergos.sh
+Name=Antergos Graphical Installer
+GenericName=Antergos Graphical Installer
+Comment=Antergos Graphical Installer.
