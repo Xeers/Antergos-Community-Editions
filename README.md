@@ -20,7 +20,7 @@ Modified version of archiso to build the Antergos ISO (livecd)
 Please, check that you have 5GB (or more) of free harddisk space in your root partition:
 `df -h /`
 
-## Instructions (without docker)
+## Instructions (without docker) 
 
 1. Install dependencies:
 ```
@@ -94,7 +94,12 @@ cp /home/$USER/Antergos-Community-Editions/configs/antergos/pacman-init.service 
 cp -R /home/$USER/Antergos-Community-Editions/configs/antergos/root-image/etc/antergos/xorg /home/$USER/Antergos-Community-Editions/configs/deepin
 ```
 
-14. Build the iso:
+15. Copy isolinux directory to deepin:
+```
+cp -R /usr/share/Antergos-Community-Editions/antergos/isolinux /home/$USER/Antergos-Community-Editions/configs/deepin
+```
+
+16. Build the iso:
 ```
 sudo ./build.sh build
 ```
