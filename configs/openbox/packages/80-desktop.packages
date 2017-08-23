@@ -10,11 +10,9 @@ midori
 
 pamac
 obmenu
-lxterminal
 antergos-openbox-setup
 gnome-disk-utility
-lxsession
-openbox
+lxsession-gtk3
 openbox-menu
 brasero
 
