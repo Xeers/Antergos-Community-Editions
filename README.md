@@ -1,5 +1,5 @@
 # Antergos Community Edition (antiso)
-Modified version of archiso to build the Antergos ISO (livecd)
+Modified version of archiso to build Antergos-Deepin (livecd)
 
 ## Dependencies
 - antergos-gfxboot for a graphical boot (or isolinux/syslinux)
