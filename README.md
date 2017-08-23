@@ -96,7 +96,7 @@ cp -R /home/$USER/Antergos-Community-Editions/configs/antergos/root-image/etc/an
 
 15. Copy isolinux directory to deepin:
 ```
-cp -R /usr/share/Antergos-Community-Editions/antergos/isolinux /home/$USER/Antergos-Community-Editions/configs/deepin
+cp -R /usr/share/Antergos-Community-Editions/configs/antergos/isolinux /home/$USER/Antergos-Community-Editions/configs/deepin
 ```
 
 16. Build the iso:
