@@ -13,7 +13,6 @@ obmenu
 antergos-openbox-setup
 gnome-disk-utility
 lxsession-gtk3
-openbox-menu
 brasero
 
 clonezilla
@@ -47,3 +46,4 @@ rkhunter
 unhide
 foremost
 sleuthkit
+bleachbit
