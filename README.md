@@ -28,27 +28,25 @@ sudo pacman -S arch-install-scripts cpio dosfstools gfxboot libisoburn mkinitcpi
 ```
 2. Clone this repository using `--recursive` like this:
 ```
-git clone https://github.com/antergos/antergos-iso.git --recursive
-```
-3. Enter into antergos-iso folder and change to the testing branch:
-```
-cd antergos-iso
-git checkout testing
+git clone https://github.com/keeganmilsten/Antergos-Community-Editions.git --recursive
 ```
 
 4. Install our modified mkarchiso and configurations by running:
 ```
+cd Antergos-Community-Editions
 sudo make install
 ```
 
 5. While inside the `antergos-iso` folder, clone antergos-gfxboot and use antergos-gfxboot `colors` branch :
 ```
 git clone https://github.com/antergos/antergos-gfxboot
+cd Antergos-Community-Editions/antergos-gfxboot/
 git checkout colors
 ```
 
 6. Create `/work` and `/out` destination folders:
 ```
+cd
 sudo mkdir /work
 sudo mkdir /out
 ```
@@ -63,7 +61,40 @@ cd /home/user/antergos-iso/configs/antergos
 
 8. Check text configuration file `config` with your favourite text editor.
 
-9. Build the iso:
+9. Download openfonts package by heading here:
+
+https://www.archlinux.org/packages/community/any/opendesktop-fonts/download/ 
+
+Next, copy this to Antergos-Community-Editions/configs/deepin (or whatever version you want to build)
+
+10. Clone the antergos iso-hotfix-utility:
+```
+cd Antergos-Community-Editions/configs/deepin/
+sudo git clone https://github.com/antergos/iso-hotfix-utility
+```
+
+11. Copy the plymouth config files to deepin:
+```
+cp /home/$USER/Antergos-Community-Editions/configs/antergos/plymouth/plymouth.initcpio_hook /home/$USER/Antergos-Community-Editions/configs/deepin
+
+cp /home/$USER/Antergos-Community-Editions/configs/antergos/plymouth/plymouth.initcpio_install /home/$USER/Antergos-Community-Editions/configs/deepin
+
+cp /home/$USER/Antergos-Community-Editions/configs/antergos/plymouth/plymouthd.conf /home/$USER/Antergos-Community-Editions/configs/deepin
+```
+
+12. Copy pacman files to deepin:
+```
+cp /home/$USER/Antergos-Community-Editions/configs/antergos/etc-pacman.d-gnupg.mount /home/$USER/Antergos-Community-Editions/configs/deepin
+
+cp /home/$USER/Antergos-Community-Editions/configs/antergos/pacman-init.service /home/$USER/Antergos-Community-Editions/configs/deepin
+```
+
+13. Copy xorg directory to deepin:
+```
+cp -R /home/$USER/Antergos-Community-Editions/configs/antergos/root-image/etc/antergos/xorg /home/$USER/Antergos-Community-Editions/configs/deepin
+```
+
+14. Build the iso:
 ```
 sudo ./build.sh build
 ```
