@@ -21,10 +21,10 @@ NOUVEAU_DRIVER="y"
 NVIDIA_DRIVER="n"
 
 # Add ZFS modules
-ADD_ZFS_MODULES="n"
+ADD_ZFS_MODULES="y"
 
 # Keep xz packages in cache
-KEEP_XZ="n"
+KEEP_XZ="y"
 
 # Install iso-hotfix-utility from source
 ISO_HOTFIX="y"
