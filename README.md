@@ -1,4 +1,4 @@
-# Antergos ISO (antiso)
+# Antergos Community Edition (antiso)
 Modified version of archiso to build the Antergos ISO (livecd)
 
 ## Dependencies
