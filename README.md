@@ -101,7 +101,7 @@ cp -R /usr/share/Antergos-Community-Editions/configs/antergos/isolinux /home/$US
 
 16. Build the iso:
 ```
-cd antergos-iso/configs/deepin
+cd Antergos-Community-Editions/configs/deepin
 sudo ./build.sh build
 ```
 
