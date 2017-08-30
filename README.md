@@ -46,7 +46,7 @@ git clone https://github.com/keeganmilsten/antergos-gfxboot
 exit
 cd
 ```
-5b. If antergos-gfxboot is not using the `colors` branch, then these commands are necessary:
+5b. (NORMALLY NOT NECESSARY) If antergos-gfxboot is not using the `colors` branch, then these commands are necessary:
 ```
 cd Antergos-Community-Editions/antergos-gfxboot/
 git checkout colors 
