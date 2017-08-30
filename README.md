@@ -37,7 +37,7 @@ cd Antergos-Community-Editions
 sudo make install
 ```
 
-5a. While inside the `antergos-iso` folder, clone antergos-gfxboot and use antergos-gfxboot `colors` branch :
+5a. While inside the `antergos-iso` folder, clone antergos-gfxboot, using antergos-gfxboot `colors` branch :
 ```
 su
 cd /
@@ -46,7 +46,7 @@ git clone https://github.com/keeganmilsten/antergos-gfxboot
 exit
 cd
 ```
-5b. If antergos-gfxboot is not using the "colors" branch, hten these commands are necessary:
+5b. If antergos-gfxboot is not using the `colors` branch, then these commands are necessary:
 ```
 cd Antergos-Community-Editions/antergos-gfxboot/
 git checkout colors 
