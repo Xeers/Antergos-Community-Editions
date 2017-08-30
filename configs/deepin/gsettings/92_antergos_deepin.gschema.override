@@ -24,7 +24,7 @@ user-layout-list=['us;']
 [com.deepin.wrap.gnome.desktop.background]
 primary-color = '#000000'
 secondary-color = '#023c88'
-picture-uri = 'file:///home/antergos/Pictures/Wallpapers/89bc5123e09bd54a6f4b2abff0f8d129.jpg'
+picture-uri = ['file:///home/antergos/Pictures/Wallpapers/89bc5123e09bd54a6f4b2abff0f8d129.jpg']
 
 [com.deepin.wrap.gnome.desktop.sound]
 theme-name = 'deepin'
