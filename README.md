@@ -101,11 +101,6 @@ cp /home/$USER/Antergos-Community-Editions/configs/antergos/pacman-init.service 
 cp -R /home/$USER/Antergos-Community-Editions/configs/antergos/root-image/etc/antergos/xorg /home/$USER/Antergos-Community-Editions/configs/deepin
 ```
 
-15. Copy isolinux directory to deepin:
-```
-cp -R /usr/share/antergos-iso/configs/antergos/isolinux /home/$USER/Antergos-Community-Editions/configs/deepin
-```
-
 16. Build the iso:
 ```
 cd Antergos-Community-Editions/configs/deepin
