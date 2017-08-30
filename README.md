@@ -48,7 +48,7 @@ git checkout colors (ONLY IF THAT BRANCH IS NOT ALREADY BEING USED - should be d
 exit
 cd
 cd Antergos-Community-Editions/antergos-gfxboot/
-git checkout colors
+git checkout colors (SAME NOTICE AS BEFORE)
 ```
 
 6. Create `/work` and `/out` destination folders:
