@@ -42,7 +42,7 @@ sudo make install
 su
 cd /
 cd usr/share/antergos-iso/
-git clone https://github.com/antergos/antergos-gfxboot
+git clone https://github.com/killajoe/antergos-gfxboot
 cd antergos-gfxboot
 git checkout colors
 exit
