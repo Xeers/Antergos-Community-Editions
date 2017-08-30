@@ -101,7 +101,7 @@ cp /home/$USER/Antergos-Community-Editions/configs/antergos/pacman-init.service 
 cp -R /home/$USER/Antergos-Community-Editions/configs/antergos/root-image/etc/antergos/xorg /home/$USER/Antergos-Community-Editions/configs/deepin
 ```
 
-16. Build the iso:
+14. Build the iso:
 ```
 cd Antergos-Community-Editions/configs/deepin
 sudo ./build.sh build
