@@ -55,6 +55,7 @@ cd
 cd /
 cd usr/share/antergos-iso/antergos-gfxboot/
 git checkout colors
+exit
 ```
 
 6. Create `/work` and `/out` destination folders:
