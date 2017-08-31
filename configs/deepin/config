@@ -18,7 +18,7 @@ SCRIPT_PATH=$(readlink -f ${0%/*})
 
 # Tell which nvidia drivers include into the iso
 NOUVEAU_DRIVER="y"
-NVIDIA_DRIVER="n"
+NVIDIA_DRIVER="y"
 
 # Add ZFS modules
 ADD_ZFS_MODULES="y"
