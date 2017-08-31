@@ -274,9 +274,9 @@ make_customize_rootfs() {
         MKARCHISO_RUN 'systemctl -fq enable ModemManager'
         MKARCHISO_RUN 'systemctl -fq enable upower'
 
-        if [ -f "${SCRIPT_PATH}/plymouthd.conf" ]; then
-            MKARCHISO_RUN 'systemctl -fq enable plymouth-start'
-        fi
+       # if [ -f "${SCRIPT_PATH}/plymouthd.conf" ]; then
+        #    MKARCHISO_RUN 'systemctl -fq enable plymouth-start'
+        #fi
 
         if [ -f "${ROOTFS}/etc/systemd/system/lightdm.service" ]; then
             MKARCHISO_RUN 'systemctl -fq enable lightdm'
