@@ -1,7 +1,7 @@
 # Desktop
 compton
-lxpanel-gtk3
-lxterminal-gtk3
+tint2
+lxterminal
 network-manager-applet
 nitrogen
 notify-osd
@@ -10,9 +10,10 @@ midori
 
 pamac
 obmenu
+openbox-menu
 antergos-openbox-setup
 gnome-disk-utility
-lxsession-gtk3
+lxsession
 brasero
 
 clonezilla
