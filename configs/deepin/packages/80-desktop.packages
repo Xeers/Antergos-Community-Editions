@@ -75,6 +75,7 @@ libsmbios
 libwnck3
 libyaml
 network-manager-applet
+networkmanager-openvpn
 ostree
 packagekit
 pepper-flash
