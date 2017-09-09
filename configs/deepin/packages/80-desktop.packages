@@ -63,6 +63,7 @@ gnome-keyring
 gnome-calculator
 gnome-software
 gnome-font-viewer
+gnome-logs
 gst-libav
 gst-plugins-bad
 gst-plugins-base
