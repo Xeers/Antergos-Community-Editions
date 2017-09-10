@@ -33,8 +33,8 @@ ISO_HOTFIX_UTILITY_URL="https://github.com/Antergos/iso-hotfix-utility/archive/$
 
 # Install Cnchi from git
 CNCHI_GIT="n"
-CNCHI_GIT_BRANCH="0.14.x"
-CNCHI_GIT_URL="https://github.com/Antergos/Cnchi/archive/${CNCHI_GIT_BRANCH}.zip"
+CNCHI_GIT_BRANCH="0.15"
+CNCHI_GIT_URL="https://github.com/keeganmilsten/Cnchi/archive/${CNCHI_GIT_BRANCH}.zip"
 
 # Pacman configuration file
 PACMAN_CONF="${WORK_DIR}/pacman.conf"
