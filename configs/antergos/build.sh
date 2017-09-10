@@ -169,6 +169,10 @@ make_customize_rootfs() {
         if [ "${ISO_HOTFIX}" == "y" ]; then
             iso_hotfix_utility
         fi
+        
+        if [ "${CNCHI_GIT}" == "y" ]; then
+            cnchi_git
+        fi
 
         #if [[ ${ISO_NAME} == *"minimal"* ]]; then
         #    remove_extra_icons
