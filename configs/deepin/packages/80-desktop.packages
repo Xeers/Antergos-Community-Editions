@@ -13,6 +13,9 @@ colord
 dconf-editor
 deepin
 deepin-extra
+deepin-mutter
+deepin-polkit-agent
+dtkwm
 elfutils
 flatpak
 fwupd
