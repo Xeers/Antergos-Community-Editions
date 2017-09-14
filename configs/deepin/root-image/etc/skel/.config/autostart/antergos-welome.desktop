@@ -1,0 +1,11 @@
+[Desktop Entry]
+Terminal=false
+Type=Application
+Categories=GNOME;GTK;System;
+Keywords=antergos;welcome;
+StartupNotify=false
+Name=Antergos Welcome
+Exec=antergos-welcome
+Icon=gtk-info
+Comment=The Antergos Welcome utility.
+Name[de_DE.UTF-8]=Antergos Welcome
