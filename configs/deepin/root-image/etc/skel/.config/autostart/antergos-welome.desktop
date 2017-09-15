@@ -9,4 +9,4 @@ Exec=antergos-welcome
 Icon=/usr/share/antergos/cnchi.png
 Comment=The Antergos Welcome utility.
 Name[de_DE.UTF-8]=Antergos Welcome
-X-GNOME-Autostart-Delay=60
+X-GNOME-Autostart-Delay=20
