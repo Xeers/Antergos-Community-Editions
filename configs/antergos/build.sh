@@ -139,7 +139,7 @@ make_setup_mkinitcpio() {
     else
         sed -i 's|plymouth||g' ${ROOTFS}/etc/mkinitcpio-archiso.conf
     fi
-    MKARCHISO_RUN 'mkinitcpio -c /etc/mkinitcpio-archiso.conf -k /boot/vmlinuz-linux -g /boot/archiso.img'
+    MKANTISO_RUN 'mkinitcpio -c /etc/mkinitcpio-archiso.conf -k /boot/vmlinuz-linux -g /boot/archiso.img'
     echo '>>> Mkinitcpio done!'
     if [[ ! -f ${ROOTFS}/boot/archiso.img ]]; then
     		echo '>>> Building archiso.img!'
