@@ -180,18 +180,18 @@ make_customize_rootfs() {
         touch /var/tmp/customize_${ISO_NAME}_rootfs.one
     }
     part_two() {
-        MKARCHISO_RUN '/usr/bin/locale-gen'
+        MKANTISO_RUN '/usr/bin/locale-gen'
         touch /var/tmp/customize_${ISO_NAME}_rootfs.two
     }
     part_three() {
         echo "Adding autologin group"
-        MKARCHISO_RUN 'groupadd -r autologin'
+        MKANTISO_RUN 'groupadd -r autologin'
         echo "Adding nopasswdlogin group"
-        MKARCHISO_RUN 'groupadd -r nopasswdlogin'
+        MKANTISO_RUN 'groupadd -r nopasswdlogin'
         echo "Adding antergos user"
-        MKARCHISO_RUN 'useradd -m -g users -G "audio,disk,optical,wheel,network,autologin,nopasswdlogin" antergos'
+        MKANTISO_RUN 'useradd -m -g users -G "audio,disk,optical,wheel,network,autologin,nopasswdlogin" antergos'
         # Set antergos account passwordless
-        MKARCHISO_RUN 'passwd -d antergos'
+        MKANTISO_RUN 'passwd -d antergos'
         # Remove vboxclient from autostart
        	rm -f ${ROOTFS}/etc/xdg/autostart/vboxclient.desktop
     	touch /var/tmp/customize_${ISO_NAME}_rootfs.three
@@ -199,7 +199,7 @@ make_customize_rootfs() {
     part_four() {
         cp -L ${SCRIPT_PATH}/set_password ${ROOTFS}/usr/bin
         chmod +x ${ROOTFS}/usr/bin/set_password
-        MKARCHISO_RUN '/usr/bin/set_password'
+        MKANTISO_RUN '/usr/bin/set_password'
         rm -f ${ROOTFS}/usr/bin/set_password
         #echo "antergos:U6aMy0wojraho" | chpasswd -R /antergos-iso/configs/antergos/${ROOTFS}
         # Configuring pacman
@@ -225,48 +225,48 @@ make_customize_rootfs() {
     }
     part_five() {
         # Enable services
-        MKARCHISO_RUN 'systemctl -fq enable pacman-init'
+        MKANTISO_RUN 'systemctl -fq enable pacman-init'
         if [ -f "${ROOTFS}/etc/systemd/system/livecd.service" ]; then
-            MKARCHISO_RUN 'systemctl -fq enable livecd'
+            MKANTISO_RUN 'systemctl -fq enable livecd'
         fi
-        MKARCHISO_RUN 'systemctl -fq enable systemd-networkd'
+        MKANTISO_RUN 'systemctl -fq enable systemd-networkd'
         if [ -f "${ROOTFS}/usr/lib/systemd/system/NetworkManager.service" ]; then
-            MKARCHISO_RUN 'systemctl -fq enable NetworkManager NetworkManager-wait-online'
+            MKANTISO_RUN 'systemctl -fq enable NetworkManager NetworkManager-wait-online'
         fi
         if [ -f "${ROOTFS}/etc/systemd/system/livecd-alsa-unmuter.service" ]; then
-            MKARCHISO_RUN 'systemctl -fq enable livecd-alsa-unmuter'
+            MKANTISO_RUN 'systemctl -fq enable livecd-alsa-unmuter'
         fi
         if [ -f "${ROOTFS}/etc/systemd/system/vboxservice.service" ]; then
-            MKARCHISO_RUN 'systemctl -fq enable vboxservice'
+            MKANTISO_RUN 'systemctl -fq enable vboxservice'
         fi
-        MKARCHISO_RUN 'systemctl -fq enable ModemManager'
-        MKARCHISO_RUN 'systemctl -fq enable upower'
+        MKANTISO_RUN 'systemctl -fq enable ModemManager'
+        MKANTISO_RUN 'systemctl -fq enable upower'
         if [ -f "${SCRIPT_PATH}/plymouthd.conf" ]; then
-            MKARCHISO_RUN 'systemctl -fq enable plymouth-start'
+            MKANTISO_RUN 'systemctl -fq enable plymouth-start'
         fi
         if [ -f "${ROOTFS}/etc/systemd/system/lightdm.service" ]; then
-            MKARCHISO_RUN 'systemctl -fq enable lightdm'
+            MKANTISO_RUN 'systemctl -fq enable lightdm'
             chmod +x ${ROOTFS}/etc/lightdm/Xsession
         fi
         if [ -f "${ROOTFS}/etc/systemd/system/gdm.service" ]; then
-            MKARCHISO_RUN 'systemctl -fq enable gdm'
+            MKANTISO_RUN 'systemctl -fq enable gdm'
             chmod +x ${ROOTFS}/etc/gdm/Xsession
         fi
         # Disable pamac if present
         if [ -f "${ROOTFS}/usr/lib/systemd/system/pamac.service" ]; then
-            MKARCHISO_RUN 'systemctl -fq disable pamac pamac-cleancache.timer pamac-mirrorlist.timer'
+            MKANTISO_RUN 'systemctl -fq disable pamac pamac-cleancache.timer pamac-mirrorlist.timer'
         fi
         # Useful a11y services for sonar
         if [ -f "${ROOTFS}/usr/lib/systemd/system/espeakup.service" ]; then
-            MKARCHISO_RUN 'systemctl -fq enable espeakup'
+            MKANTISO_RUN 'systemctl -fq enable espeakup'
         fi
         if [ -f "${ROOTFS}/usr/lib/systemd/system/brltty.service" ]; then
-            MKARCHISO_RUN 'systemctl -fq enable brltty'
+            MKANTISO_RUN 'systemctl -fq enable brltty'
         fi
         # Enable systemd-timesyncd (ntp)
-        MKARCHISO_RUN 'systemctl -fq enable systemd-timesyncd'
+        MKANTISO_RUN 'systemctl -fq enable systemd-timesyncd'
         # Fix /home permissions
-        MKARCHISO_RUN 'chown -R antergos:users /home/antergos'
+        MKANTISO_RUN 'chown -R antergos:users /home/antergos'
         # Setup gsettings if gsettings folder exists
         if [ -d ${SCRIPT_PATH}/gsettings ]; then
             # Copying GSettings XML schema files
@@ -276,20 +276,20 @@ make_customize_rootfs() {
                 cp ${_schema} ${ROOTFS}/usr/share/glib-2.0/schemas
             done
             # Compile GSettings XML schema files
-            MKARCHISO_RUN '/usr/bin/glib-compile-schemas /usr/share/glib-2.0/schemas'
+            MKANTISO_RUN '/usr/bin/glib-compile-schemas /usr/share/glib-2.0/schemas'
         fi
         # BEGIN Pacstrap/Pacman bug where hooks are not run inside the chroot
         if [ -f ${ROOTFS}/usr/bin/update-ca-trust ]; then
-            MKARCHISO_RUN '/usr/bin/update-ca-trust'
+            MKANTISO_RUN '/usr/bin/update-ca-trust'
         fi
         if [ -f ${ROOTFS}/usr/bin/update-desktop-database ]; then
-            MKARCHISO_RUN '/usr/bin/update-desktop-database --quiet'
+            MKANTISO_RUN '/usr/bin/update-desktop-database --quiet'
         fi
         if [ -f ${ROOTFS}/usr/bin/update-mime-database ]; then
-            MKARCHISO_RUN '/usr/bin/update-mime-database /usr/share/mime'
+            MKANTISO_RUN '/usr/bin/update-mime-database /usr/share/mime'
         fi
         if [ -f ${ROOTFS}/usr/bin/gdk-pixbuf-query-loaders ]; then
-            MKARCHISO_RUN '/usr/bin/gdk-pixbuf-query-loaders --update-cache'
+            MKANTISO_RUN '/usr/bin/gdk-pixbuf-query-loaders --update-cache'
         fi
         # END Pacstrap/Pacman bug
         ## Set multi-user target (text) as default boot mode for net-install
@@ -310,9 +310,9 @@ make_customize_rootfs() {
         ( "${SCRIPT_PATH}/translations.sh" $(cd "${OUT_DIR}"; pwd;) $(cd "${WORK_DIR}"; pwd;) $(cd "${SCRIPT_PATH}"; pwd;) )
         echo "Set systemd target"
         if [[ ${ISO_NAME} == *"netcli"* ]]; then
-            MKARCHISO_RUN 'systemctl -fq set-default multi-user.target'
+            MKANTISO_RUN 'systemctl -fq set-default multi-user.target'
         else
-            MKARCHISO_RUN 'systemctl -fq set-default graphical.target'
+            MKANTISO_RUN 'systemctl -fq set-default graphical.target'
         fi
         touch /var/tmp/customize_${ISO_NAME}_rootfs.five
     }
@@ -554,12 +554,12 @@ make_iso_version_files() {
 make_kernel_modules_with_dkms() {
     if [[ ! -f /var/tmp/customize_${ISO_NAME}_rootfs.dkms ]]; then
         # Build kernel modules that are handled by dkms so we can delete kernel headers to save space
-        MKARCHISO_RUN 'dkms autoinstall'
+        MKANTISO_RUN 'dkms autoinstall'
         if [ "${ADD_ZFS_MODULES}" == "y" ]; then
             # Bugfix (sometimes pacman tries to build zfs before spl!)
             cp "${SCRIPT_PATH}/dkms.sh" "${ROOTFS}/usr/bin"
             chmod +x "${ROOTFS}/usr/bin/dkms.sh"
-            MKARCHISO_RUN '/usr/bin/dkms.sh'
+            MKANTISO_RUN '/usr/bin/dkms.sh'
         fi
         # Removing linux-headers makes dkms hook delete broadcom-wl driver!
         # Remove kernel headers.
@@ -570,8 +570,8 @@ make_kernel_modules_with_dkms() {
 # Build a single root filesystem
 make_prepare() {
     cp -a -l -f ${ROOTFS} ${WORK_DIR}
-    MKARCHISO pkglist
-    MKARCHISO prepare
+    MKANTISO pkglist
+    MKANTISO prepare
 }
 # Build ISO
 make_iso() {
@@ -581,7 +581,7 @@ make_iso() {
         FULL_ISO_NAME="${ISO_NAME}-${ISO_VERSION}-${ARCH}.iso"
     fi
     echo ">>> Building ${FULL_ISO_NAME}..."
-    MKARCHISO -L "${ISO_LABEL}" -o "${OUT_DIR}" iso "${FULL_ISO_NAME}"
+    MKANTISO -L "${ISO_LABEL}" -o "${OUT_DIR}" iso "${FULL_ISO_NAME}"
 }
 # Cleans rootfs
 clean_rootfs() {
