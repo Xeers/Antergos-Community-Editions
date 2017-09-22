@@ -51,6 +51,8 @@ polari
 pragha
 python-dae
 reflector
+rsync
+grsync
 startdde
 totem
 transmission-gtk
