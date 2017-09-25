@@ -1,5 +1,4 @@
 # Desktop
-antergos-kernel-manager
 antergos-wallpapers
 antergos-wallpapers-deepin
 antergos-welcome
@@ -27,11 +26,9 @@ gedit
 gksu
 gnome-keyring
 gnome-calculator
-gnome-control-center
 gnome-software
 gnome-font-viewer
 gnome-logs
-gnome-online-accounts
 gst-libav
 gst-plugins-bad
 gst-plugins-base
